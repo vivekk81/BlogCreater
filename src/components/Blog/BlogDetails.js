@@ -1,13 +1,12 @@
 import React from 'react'
-import { blogs } from "../Constants/Blogs";
 import { Typography } from 'antd';
-const { Title } = Typography
-const images = 
-  'https://res.cloudinary.com/vishiman/image/upload/v1620388806/samples/ecommerce/leather-bag-gray.jpg';
+import {useSelector} from 'react-redux';
+
+const { Title } = Typography;
 
 function BlogDetails({match, title, data}) {
   const blogTitle = title ? title : match.params.title
-  console.log(blogTitle)
+  const blogs = useSelector(state => state);
   const blog = data ? data : blogs.filter(blog => blog.title === blogTitle)[0];
   return (
     <div style={{ width: '80%', margin: '3rem auto', color: "#000"}}>

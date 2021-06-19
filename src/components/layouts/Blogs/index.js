@@ -1,11 +1,12 @@
 import React from 'react';
-import { blogs } from "../../Constants/Blogs";
 import Blog from '../../Blog/Blog';
 import { Typography, Row } from 'antd';
+import {useSelector} from 'react-redux';
 
 const { Title } = Typography
 
 function Blogs() {
+  const blogs = useSelector(state => state);
   return (
     <div style={{ width: '85%', margin: '3rem auto' }}>
       <Title level={2}> Blogs </Title>

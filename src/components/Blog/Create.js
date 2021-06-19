@@ -2,11 +2,12 @@ import React, {useState} from 'react'
 import QuillEditor from '../Editor/QuillEditor';
 import BlogPrivew from './BlogPrivew';
 import { Typography, Button, Input, Row, Col  } from 'antd';
-// import axios from 'axios';
+import { useDispatch } from 'react-redux';
 
 const { Title } = Typography;
 
 function Create({history}) {
+  const dispatch = useDispatch();
   const [content, setContent] = useState("")
   const [files, setFiles] = useState([])
   const [author, setAuthor] = useState("")
@@ -38,10 +39,15 @@ function Create({history}) {
     }
 
     setData(variables);
+    console.log(files);
     setPreview(true);
   }
   
   const handlePreviewOK = () => {
+    dispatch({
+        type: 'CREATE_BLOG',
+        payload: data
+    })
     setPreview(false);
     history.push("/blogs")
   }

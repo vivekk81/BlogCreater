@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { Card, Avatar, Col } from 'antd';
+import { Card, Col } from 'antd';
 import { EllipsisOutlined, SettingOutlined, EditOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
@@ -19,9 +19,6 @@ function Blog({blog}) {
           ]}
         >
           <Meta
-            avatar={
-              <Avatar />
-            }
             title={blog.author}
             description={blog.title}
           />
